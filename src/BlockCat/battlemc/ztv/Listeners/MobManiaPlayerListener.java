@@ -6,11 +6,11 @@ import org.bukkit.entity.Creature;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
+import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
-import org.bukkit.event.player.PlayerListener;
 import org.bukkit.util.Vector;
 
-public class MobManiaPlayerListener extends PlayerListener {
+public class MobManiaPlayerListener implements Listener {
 
 	public void onPlayerInteractEntity(PlayerInteractEntityEvent event)
 	{

@@ -34,26 +34,25 @@ public class MobMania extends JavaPlugin {
 		pm.registerEvents(this.snowman, this);
 		pm.registerEvents(this.playerListener, this);
 
-		//setting up scheduler for mob-retargeting.
-
-		this.getServer().getScheduler().scheduleSyncRepeatingTask(this, new Runnable() {
-			public void run(){
-				for(World w : plugin.getServer().getWorlds()){
-					for(Entity e : plugin.getServer().getWorld(w.getName()).getEntities()){
-						if(MobManiaConfig.mobattackeachother){
-							MobMania.target(e);
-							//plugin.getServer().broadcastMessage("seek update");
-						}
-					}
-				}
-			}
-		}, 1L, 20L);
-
-
-
 		//making a config.
 		MobManiaConfig mmc = new MobManiaConfig(this);
 		mmc.loadConfig();
+
+		//setting up scheduler for mob-retargeting.
+
+		if(mmc.mobattackeachother)
+			this.getServer().getScheduler().scheduleSyncRepeatingTask(this, new Runnable() {
+				public void run(){
+					for(World w : plugin.getServer().getWorlds()){
+						for(Entity e : plugin.getServer().getWorld(w.getName()).getEntities()){
+							if(MobManiaConfig.mobattackeachother){
+								MobMania.target(e);
+								//plugin.getServer().broadcastMessage("seek update");
+							}
+						}
+					}
+				}
+			}, 1L, 20L);
 
 
 	}

@@ -12,7 +12,7 @@ public class MobManiaConfig {
 	}
 	
 	public void loadConfig(){
-		final FileConfiguration config  = plugin.getConfig();;
+		final FileConfiguration config  = plugin.getConfig();
 		config.options().header("MobMania configuration");
 		
 		config.addDefault("Mobs.attack each other", true);
